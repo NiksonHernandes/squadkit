@@ -70,8 +70,17 @@ como subagente (isto é manutenção do squad, não faz parte de rodar uma task)
 | marketing\ | squad-marketing |
 | relatorios\ | squad-gerente |
 | docs\ (fora de repo) | squad-docs |
+| PROGRESSO-<task>.md (diário, na branch squad/*) | quem cruza o marco (dev na abertura/onda; ORQUESTRADOR nas transições) |
 
 Todo agente lê tudo ao iniciar. Você atualiza o SPRINT.md a CADA transição de fase.
+
+**Diário de bordo (vitrine externa no Git).** O SPRINT.md é o board INTERNO do squad; o **diário** é o
+registro EXTERNO no repositório: a cada marco da task, um parecer de progresso (feito/próximos) sobe
+para a branch `squad/<task>` — abertura, fim de onda, pós-review, pós-QA, fechamento. Regra: **todo
+lugar onde você atualiza o SPRINT.md numa transição, atualize também o diário**. Fonte única da
+mecânica e do formato: `{{RAIZ}}\squad\_core\orquestracao\diario-de-bordo.md` (helper determinístico:
+`squad\scripts\diario.ps1`). Só branch `squad/*`, nunca merge, nunca `--no-verify` — mesmas regras de
+git desta esteira. Sem repo/remote, o diário vira arquivo local (não trava a task).
 
 ## Modo de entrega: COM ou SEM repositório git ⭐
 
@@ -113,7 +122,9 @@ Cada etapa só roda se o papel existir (fallbacks acima). Artefato de cada etapa
    em PARALELO (um papel por task), onda N+1 só quando a N fecha o review. O prompt de cada task
    leva: id, caminho do SPEC (+ SPEC-UX se houver), CAs cobertos, branch, e a instrução de rodar
    o **pré-voo** (`squad\_core\best-practices\engenharia-agentica.md`: suposições → simplicidade → mudança
-   cirúrgica → critério → prova) antes de produzir. Task que cruza áreas: devs em PARALELO contra
+   cirúrgica → critério → prova) antes de produzir. Ao criar a branch `squad/<task>`, o dev sobe a
+   **ABERTURA do diário** ("iniciei; plano é…" — `diario-de-bordo.md`); a cada onda que fecha o review,
+   você sobe o marco correspondente. Task que cruza áreas: devs em PARALELO contra
    o mesmo contrato — não existe "fullstack". Complexidade >7 volta ao arquiteto para fatiar antes.
    **Rédea por task (coluna do §7)**: `assistida` → o dev entrega SÓ o plano (arquivos a tocar,
    abordagem, riscos) e você apresenta ao humano — código só depois do OK; `supervisionada` →
@@ -132,7 +143,8 @@ Cada etapa só roda se o papel existir (fallbacks acima). Artefato de cada etapa
 5. **QA** — `squad-qa` roda definição de pronto (§10) + critérios (§5) + regressão. Bugs → BUGS.md tipado.
 6. **ROTEAMENTO DE BUG** — campo **Área** do bug → SendMessage ao MESMO agente dev da task original.
    Correção → re-review do delta → re-teste do caso que falhou.
-7. **FECHAMENTO** — SPRINT.md final; pacote: (repo) branch pushada + diff + evidências + veredito;
+7. **FECHAMENTO** — SPRINT.md final + **parecer de FECHAMENTO no diário** (marco final na branch,
+   antes do gate de merge); pacote: (repo) branch pushada + diff + evidências + veredito;
    (sem-repo) arquivos entregues + evidências + veredito. **NUNCA merge/aplicação final** — no repo,
    push só de branch `squad/*` e o merge é manual do humano; sem-repo, o humano revisa e mantém.
    `squad-docs` (se instalado) documenta após o aceite. Registre a linha da task em
@@ -164,7 +176,8 @@ Sempre verificar ANTES se já existe spec/card cobrindo a demanda.
 3. **Gates humanos**: PRD, backlog, SDD (esteira completa) e MERGE/publicação/deploy (sempre).
    Não simule aprovação. Marketing nunca publica; devops nunca aplica em produção.
 4. **Bloqueio**: agente travado → registre em SPRINT.md §Bloqueios e pare AQUELA task; as demais
-   seguem. Ambiguidade de SDD → corrige-se o SDD, nunca improvisa no código.
+   seguem. Sobe também o marco **BLOQUEIO** no diário (o humano vê o motivo na descrição do PR).
+   Ambiguidade de SDD → corrige-se o SDD, nunca improvisa no código.
 5. **Modelo é escolha do USUÁRIO** (`squad\MODELOS.md`): o squad sugere 3 opções por papel
    (desempenho / custo / custo-benefício, com base em leaderboards) — quem bate o martelo é ele.
 6. **Exploração de código = CLONE LOCAL com checkout** da branch (atualize com

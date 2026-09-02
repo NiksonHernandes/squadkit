@@ -1,5 +1,29 @@
 # Changelog — SquadKit
 
+## 0.9.0 — 2026-09-02 · Diário de bordo no Git (pareceres de progresso por marco)
+
+- **Nova skill padrão `diario-de-bordo`**: pequenas atualizações de progresso no repositório ao longo
+  da task — não só a entrega final. Formato **enxuto**: uma **tabela** `Quando | Etapa | Atualização`
+  que ganha uma linha curta por marco (Abertura ao criar a branch, Evento, Revisão, QA, Bloqueio,
+  Fechamento). Fonte única CLI-neutra em `core/orquestracao/diario-de-bordo.md`; wrapper de skill do
+  Claude Code. Tudo em português (script salvo em UTF-8 c/ BOM; saída UTF-8 sem BOM — acentos corretos).
+- **Vitrine na descrição do PR/MR**: na abertura, o diário abre um **PR/MR em rascunho (DRAFT)** e
+  mantém a **descrição** com a mesma tabela a cada marco (bloco gerenciado entre marcadores, sem apagar
+  o texto do humano) — abrir a branch/PR já mostra o andamento. O PR fica DRAFT; "pronto" + merge é do humano.
+- **Registro universal**: arquivo `PROGRESSO-<task>.md` (a mesma tabela) commitado/pushado na branch
+  `squad/*` (funciona em GitHub, GitLab e qualquer host, sem depender de `gh`/`glab`). Sem repo/remote →
+  arquivo local, sem push. Herda as regras da esteira: só branch `squad/*`, nunca merge, nunca
+  `--no-verify` (hook guardião ativo).
+- **Marco BLOQUEIO**: quando uma task trava e para (esteira §Bloqueios), a linha do diário mostra ao
+  humano, na descrição do PR, o motivo do bloqueio.
+- **Cadência por MARCO, não por relógio**: agente não tem timer confiável na execução; os marcos
+  mapeiam nas transições que a esteira já tem (regra: onde atualiza o SPRINT.md, atualiza o diário).
+- **Helper determinístico `scripts/diario.ps1`** (`-Repo -Task -Branch -Base -Marco -Resumo`, flags
+  `-SemPR -SemPush`): adiciona a linha na tabela + commit + push + abrir/atualizar a descrição do PR/MR
+  draft; recusa operar fora de branch `squad/*` (guarda contra a principal); nunca trava a task se o PR falhar.
+- Integrado na esteira (transições, despacho por ondas, fechamento, tabela de donos), nos papéis
+  dev (front/back/dados/mobile) + devops, e no `ROLE-TEMPLATE.md` (papéis futuros já nascem com o gancho).
+
 ## 0.8.3 — 2026-07-20 · Modo rápido de contexto + expectativa de tempo (telemetria do 1º teste ponta a ponta)
 
 - Teste real (7Risk): ~1h de setup (montar-contexto+squad) e ~40 min/task. Números saudáveis para o

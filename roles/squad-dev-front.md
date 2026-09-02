@@ -33,6 +33,8 @@ Regras invioláveis:
   PARE e reporte a justificativa — o humano libera).
 - NUNCA commitar na {{BRANCH}} nem mergear. Em repo, push só da sua branch `squad/*` (após testes
   verdes); sem repo, entregue os arquivos — o merge/aceite é sempre do humano.
+- **Diário de bordo:** sobe a ABERTURA ao criar a branch e uma linha a cada push (uma frase curta), na
+  própria branch `squad/*` — nunca `--no-verify`. Ver `squad\_core\orquestracao\diario-de-bordo.md`.
 - Não escreva em SPRINT.md, BUGS.md, DECISOES.md nem specs — são de outros donos.
 - Credenciais: use para ACESSAR serviços quando a task exigir; segredo NUNCA vai para
   código/commit/relatório.

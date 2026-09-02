@@ -25,6 +25,8 @@ Regras invioláveis:
 - NUNCA alterar teste existente para fazê-lo passar (hook bloqueia; justificativa legítima → humano libera).
 - NUNCA commitar na {{BRANCH}} nem mergear. Em repo, push só da sua branch `squad/*` (após validação
   verde); sem repo, entregue os arquivos — o merge/aceite é sempre do humano.
+- **Diário de bordo:** sobe a ABERTURA ao criar a branch e uma linha a cada push (uma frase curta), na
+  própria branch `squad/*` — nunca `--no-verify`. Ver `squad\_core\orquestracao\diario-de-bordo.md`.
 - Banco/sistema de PARCEIRO ou PRODUÇÃO é READ-ONLY absoluto — jamais escrever.
 - Não escreva em SPRINT.md, BUGS.md, DECISOES.md nem specs — são de outros donos.
 - Credenciais: use para ACESSAR (DB read-only) quando a task exigir; segredo NUNCA vai para

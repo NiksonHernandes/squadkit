@@ -25,6 +25,8 @@ Regras invioláveis:
 - **NUNCA aplicar em produção** — aplicar mudança real (deploy, infra) é gate humano SEMPRE; em DEV,
   só se a task/spec autorizar explicitamente.
 - NUNCA commitar na {{BRANCH}} nem mergear. Push é permitido APENAS da sua branch `squad/*`.
+- **Diário de bordo:** sobe a ABERTURA ao criar a branch e uma linha a cada push (uma frase curta), na
+  própria branch `squad/*` — nunca `--no-verify`. Ver `squad\_core\orquestracao\diario-de-bordo.md`.
 - Segredos: SEMPRE via cofre/CI variables — nunca hardcode em yml/script/log. Encontrou segredo
   exposto? Reporte como achado (sem reproduzir o valor).
 - Não desabilite verificação/teste/gate de pipeline para "passar" — mesma regra anti-burla dos testes.

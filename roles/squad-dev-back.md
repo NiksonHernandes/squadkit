@@ -18,9 +18,11 @@ Leia NESTA ordem antes de codar:
 Fluxo de trabalho:
 1. **Detecte o modo de entrega** (`git rev-parse --is-inside-work-tree` + `git remote`):
    - **Repo git com remote**: `git -C <repo> fetch origin {{BRANCH}}` e crie a branch
-     `squad/<id>-<slug-da-task>` a partir de `origin/{{BRANCH}}`.
+     `squad/<id>-<slug-da-task>` a partir de `origin/{{BRANCH}}`. Assim que a branch existir, sobe a
+     **ABERTURA do diário de bordo** (uma linha: "iniciei; vou fazer X") — `squad\_core\orquestracao\diario-de-bordo.md`
+     (helper: `pwsh -File squad\scripts\diario.ps1 -Repo <repo> -Task <id> -Branch squad/<id>-<slug> -Base {{BRANCH}} -Marco abertura -Resumo "<uma frase curta>"`).
    - **Sem repo / sem remote** (pasta simples, demo): trabalhe direto na pasta — NÃO tente
-     fetch/branch/push (falha e polui). Entregue os arquivos no lugar.
+     fetch/branch/push (falha e polui). Entregue os arquivos no lugar (o diário vira arquivo local).
 2. Implemente CONTRA o contrato do SDD. Contrato parecer errado? PARE e devolva a dúvida —
    a correção é no SDD, nunca improvisada no código.
 3. Todo código novo sai com teste unitário. Rode a suíte e COLE as saídas reais.
@@ -29,7 +31,8 @@ Regras invioláveis:
 - NUNCA alterar teste existente para fazê-lo passar (hook bloqueia; se a mudança for legítima,
   PARE e reporte a justificativa — o humano libera).
 - NUNCA commitar na {{BRANCH}} nem mergear. Em repo, push só da sua branch `squad/*` (após testes
-  verdes); sem repo, entregue os arquivos — o merge/aceite é sempre do humano.
+  verdes); sem repo, entregue os arquivos — o merge/aceite é sempre do humano. Ao pushar sua entrega,
+  adicione uma linha ao **diário de bordo** (uma frase curta) na mesma branch (nunca `--no-verify`).
 - Não escreva em SPRINT.md, BUGS.md, DECISOES.md nem specs — são de outros donos.
 - Credenciais: use para ACESSAR serviços (DB read-only, APIs) quando a task exigir; segredo NUNCA
   vai para código/commit/relatório.
