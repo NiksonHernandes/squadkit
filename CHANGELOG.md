@@ -1,5 +1,18 @@
 # Changelog — SquadKit
 
+## 0.9.1 — 2026-09-02 · Entrevista de contexto calibrada pelo perfil de quem responde
+
+- **`/montar-contexto` — Passo 0 na Fase 1**: antes das 8 perguntas, a IA descobre COM QUEM está
+  falando (leigo/pessoal · TI/dev · PO/gestor/negócio · especialista do domínio; aceita perfil misto)
+  e calibra profundidade e vocabulário por uma **tabela de calibração** — mesmo tema, perguntas mais
+  técnicas ou mais simples conforme o interlocutor. Fallback seguro: não encaixou → trata como leigo e
+  sobe o nível se perceber fluência. O perfil é gravado no topo de `entrevista.md` (os papéis herdam o tom).
+- **Completude sobre pressa**: as 8 perguntas viram o *núcleo*; a IA acrescenta perguntas de
+  aprofundamento e prioriza o contexto mais completo possível, mesmo que a entrevista se estenda — sem
+  contradizer o modo RÁPIDO (que reduz o escopo de ingestão de docs, não o rigor da entrevista).
+- Mudança só no core (`core/orquestracao/montar-contexto.md`); wrappers (Claude Code, Antigravity)
+  apontam para ele e herdam automaticamente.
+
 ## 0.9.0 — 2026-09-02 · Diário de bordo no Git (pareceres de progresso por marco)
 
 - **Nova skill padrão `diario-de-bordo`**: pequenas atualizações de progresso no repositório ao longo

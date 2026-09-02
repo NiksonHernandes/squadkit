@@ -26,8 +26,31 @@ antes do primeiro valor. Os passos abaixo valem para os dois; no modo rápido, v
 
 ## Fase 1 — ENTREVISTA (o que é isto e o que você quer)
 
-Pergunte UMA por vez, máximo 8, adaptando ao que a pessoa é (dev sênior OU alguém organizando a
-vida pessoal — a esteira serve aos dois):
+**Passo 0 — descubra QUEM está respondendo (pergunte ANTES de tudo).** A mesma pergunta muda de
+forma conforme o interlocutor; sem calibrar, você fala técnico com leigo (ele chuta) ou fala raso
+com especialista (perde profundidade). Abra com:
+
+> "Antes de começar: para eu calibrar as perguntas, com quem estou falando neste projeto? Ex.: é
+> algo mais **leigo/pessoal**, você é da **TI/dev**, é **PO/gestor de produto/negócio**, ou é um
+> **especialista do domínio** (jurídico, saúde, dados, etc.)? Pode ter mais de um chapéu."
+
+Calibre a entrevista pela resposta — mesmo tema, profundidade e vocabulário diferentes:
+
+| Perfil | Como perguntar | Onde aprofundar |
+| --- | --- | --- |
+| **Leigo / pessoal** | linguagem do dia a dia, sem jargão; exemplos concretos ("tipo planilha, agenda…") | o objetivo real e o que dá errado hoje; você traduz para o técnico |
+| **TI / dev** | pode usar termos técnicos direto (repos, branch, CI, migração, API) | arquitetura, integrações, dívidas técnicas, numerações/versões reais |
+| **PO / gestor / negócio** | foco em objetivo, prioridade, stakeholders, aprovação e prazo | quem decide o quê, métricas de sucesso, restrições de negócio |
+| **Especialista do domínio** | fale a língua do domínio; peça as regras que "todo mundo da área sabe" | regras/compliance do domínio, exceções, o que é inegociável |
+
+Não sabe encaixar? Trate como **leigo** (mais seguro) e suba o nível se as respostas mostrarem
+fluência. Perfil misto: combine as colunas. Registre o perfil no topo de `entrevista.md` — os
+papéis do squad herdam esse tom depois.
+
+Então pergunte UMA por vez (as 8 abaixo são o núcleo; adapte o vocabulário ao perfil e ACRESCENTE
+perguntas de aprofundamento quando a resposta abrir uma lacuna — **priorize um contexto o mais
+completo possível, mesmo que a entrevista se estenda**; contexto raso é o que faz o agente errar
+com confiança):
 1. O que é o projeto/trabalho em 1 parágrafo? O que você FAZ e o que QUER PASSAR a fazer com o squad?
 2. Quais os entregáveis recorrentes? (código? relatórios? vídeos? agenda organizada? campanhas?)
 3. Onde vive o material? (repos git, pastas de docs, planilhas, board tipo Jira/DevOps/Trello,
