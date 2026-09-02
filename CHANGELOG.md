@@ -11,6 +11,11 @@
   quem versiona; Notion/Drive → docs/analista) — sem espalhar pelo squad todo. Os MCPs aparecem na
   **proposta** (linha própria, decisão do humano). No Build, as tools do MCP entram nas `tools:` do
   papel e a nota "(Requer <X> MCP instalado.)" na `description` (mesmo padrão do Playwright MCP).
+- **Confirmação explícita antes de conectar (gate humano)**: no Build, ter dito "seria útil" na
+  entrevista não autoriza a conexão — para cada MCP a IA pergunta "quer conectar o <X> MCP ao papel
+  <Y> agora?" e só fia as tools se o usuário confirmar; "depois/não" vira pendência em `DECISOES.md`
+  (conectável a qualquer momento, sem refazer o squad). Quem confirma recebe o passo a passo de
+  habilitação no CLI/IDE.
 - **Segurança**: MCP dá **ACESSO**; o segredo mora na conexão (config do cliente/IDE, do humano),
   nunca no papel/artefato/commit/log. Mudança só no core; wrappers herdam.
 

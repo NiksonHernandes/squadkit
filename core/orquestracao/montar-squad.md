@@ -84,10 +84,18 @@ Para cada papel aprovado:
 3. Anexe as best-practices selecionadas à leitura obrigatória do papel e atualize a tabela
    "Papéis e roteamento" da esteira (`squad\_core\orquestracao\esteira.md` do projeto). Crie as
    pastas de artefato novas em `squad\`.
-   - **MCP aprovado** → adicione as tools do MCP às `tools:` do frontmatter do papel que o usa e a
-     nota "(Requer <X> MCP instalado.)" na `description` (padrão do Playwright MCP). Diga ao usuário
-     como habilitar o MCP no CLI/IDE dele (config do cliente) — o squad usa; a instalação/credencial
-     da conexão é do humano. Segredo do MCP nunca entra em papel/artefato/commit.
+   - **MCP aprovado → CONFIRME antes de conectar (gate humano explícito).** Ter dito na entrevista
+     "seria útil" não é autorização de conexão. Para CADA MCP, pergunte agora, de forma direta:
+     > "Quer **conectar o <X> MCP** ao papel <papel> agora? Isso exige habilitar o MCP no seu CLI/IDE
+     > (e a credencial da conexão). Posso ligar no squad e te passar o passo a passo, ou deixo anotado
+     > como pendência para depois."
+
+     - **Sim** → adicione as tools do MCP às `tools:` do papel que o usa + a nota "(Requer <X> MCP
+       instalado.)" na `description` (padrão do Playwright MCP), e entregue o **passo a passo de
+       habilitação** no CLI/IDE dele (config do cliente). A instalação e a credencial da conexão são
+       do humano — o squad só usa. Segredo do MCP nunca entra em papel/artefato/commit/log.
+     - **Depois/Não** → NÃO fie as tools; registre como pendência em `DECISOES.md` ("MCP <X> previsto,
+       não conectado — habilitar quando desejar"). Dá para conectar a qualquer momento sem refazer o squad.
 4. Escreva/atualize `squad\MODELOS.md` (papel → modelo escolhido pelo usuário → alternativas sugeridas).
 5. Registre a composição em `squad\DECISOES.md` (AD-SQ: quais papéis, por quê, o que ficou de fora).
 
