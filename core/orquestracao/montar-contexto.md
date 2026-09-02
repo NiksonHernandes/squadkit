@@ -61,6 +61,20 @@ com confiança):
 7. O que costuma dar errado hoje? (vira regra canônica de prevenção)
 8. Há credenciais/acessos que o squad usará? (onde ficam — regra: uso para ACESSO, nunca em entregável)
 
+**Integrações via MCP (pergunte ao fim — "durante ou após").** Muitas ferramentas que apareceram nas
+respostas têm um **MCP** que conecta os agentes direto ao sistema (em vez de o humano copiar/colar).
+Pergunte, com exemplos ancorados no que a pessoa citou:
+
+> "Quer que o squad se **conecte** a alguma dessas ferramentas via MCP? Alguns comuns: **Atlassian**
+> (Jira/Confluence) ou **Trello** para o board, **Figma** para o front/UX, **GitHub/GitLab** para os
+> repos, **Notion**/**Google Drive** para docs. Se usa outro, me diz qual."
+
+Anote em `entrevista.md`, para CADA MCP desejado: **qual ferramenta · para quê · qual papel provável**
+usaria (ex.: Figma → front/UX; Atlassian → PO/analista que mexe no board). O `/montar-squad` liga cada
+MCP ao papel certo. Não force: se a pessoa não usa nenhum, ou não sabe o que é MCP, siga sem — dá para
+adicionar depois. Regra de segurança: **MCP dá ACESSO**; o segredo mora na conexão (config do MCP),
+nunca no entregável/commit/log.
+
 Grave `squad\_build\entrevista.md`.
 
 ## Fase 2 — INGESTÃO (ler o que existe)

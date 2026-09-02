@@ -48,6 +48,13 @@ Princípios de composição (não negociáveis):
   desempenho · menor custo · melhor custo-benefício) com 1 linha de justificativa cada, apontando
   leaderboards para ele conferir (ver `squad\_core\best-practices\escolher-modelos.md`). Ele escolhe —
   inclusive fora das sugestões. Registre em `squad\MODELOS.md`.
+- **MCP por papel = liga só onde faz sentido**: leia os MCPs que o usuário pediu na entrevista
+  (`entrevista.md`) e mapeie CADA um ao(s) papel(éis) que realmente usa(m) — não espalhe para o squad
+  todo (Figma → dev-front/ux; Atlassian/Trello → PO/PM/analista que mexe no board; GitHub/GitLab →
+  papéis que versionam; Notion/Drive → docs/analista). Se nenhum papel usa um MCP citado, questione se
+  vale mesmo. Segue o padrão do Playwright MCP: nota "(Requer <X> MCP instalado.)" na `description` do
+  papel e o MCP entra nas `tools:`. Segurança: MCP dá ACESSO; segredo na conexão, nunca no entregável.
+  Surja os MCPs na proposta (linha própria) — a integração é decisão do humano, como tudo que é externo.
 
 Apresente a proposta ao humano NESTE formato e **PARE até ele aprovar** (ajuste e reapresente
 quantas vezes preciso):
@@ -56,6 +63,7 @@ quantas vezes preciso):
 SQUAD PROPOSTO — <projeto>
 | Papel | Origem (catálogo/novo) | Responsabilidade única | Artefato/pasta | Gates |
 Esteira: <como uma demanda típica flui papel a papel, onde estão os gates humanos>
+MCPs a integrar: <MCP → papel(éis) que usa → para quê; ou "nenhum">
 Fora do squad (e por quê): <papéis considerados e descartados — YAGNI explícito>
 ```
 
@@ -76,6 +84,10 @@ Para cada papel aprovado:
 3. Anexe as best-practices selecionadas à leitura obrigatória do papel e atualize a tabela
    "Papéis e roteamento" da esteira (`squad\_core\orquestracao\esteira.md` do projeto). Crie as
    pastas de artefato novas em `squad\`.
+   - **MCP aprovado** → adicione as tools do MCP às `tools:` do frontmatter do papel que o usa e a
+     nota "(Requer <X> MCP instalado.)" na `description` (padrão do Playwright MCP). Diga ao usuário
+     como habilitar o MCP no CLI/IDE dele (config do cliente) — o squad usa; a instalação/credencial
+     da conexão é do humano. Segredo do MCP nunca entra em papel/artefato/commit.
 4. Escreva/atualize `squad\MODELOS.md` (papel → modelo escolhido pelo usuário → alternativas sugeridas).
 5. Registre a composição em `squad\DECISOES.md` (AD-SQ: quais papéis, por quê, o que ficou de fora).
 

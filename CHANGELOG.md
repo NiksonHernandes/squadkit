@@ -1,5 +1,19 @@
 # Changelog — SquadKit
 
+## 0.9.2 — 2026-09-02 · Integração de MCP aos agentes (pergunta na entrevista → fiação no montar-squad)
+
+- **`/montar-contexto` pergunta por MCPs**: ao fim da entrevista, a IA pergunta se o usuário quer
+  **conectar o squad** a alguma ferramenta via MCP (Atlassian/Jira/Confluence, Trello, Figma,
+  GitHub/GitLab, Notion, Google Drive…), ancorando os exemplos no que ele já citou. Anota, por MCP:
+  ferramenta · para quê · papel provável. Não força (não usa/não conhece → segue sem, adiciona depois).
+- **`/montar-squad` liga o MCP ao papel certo**: novo princípio de composição mapeia cada MCP aos
+  papéis que realmente usam (Figma → front/ux; Atlassian/Trello → PO/PM/analista do board; repos →
+  quem versiona; Notion/Drive → docs/analista) — sem espalhar pelo squad todo. Os MCPs aparecem na
+  **proposta** (linha própria, decisão do humano). No Build, as tools do MCP entram nas `tools:` do
+  papel e a nota "(Requer <X> MCP instalado.)" na `description` (mesmo padrão do Playwright MCP).
+- **Segurança**: MCP dá **ACESSO**; o segredo mora na conexão (config do cliente/IDE, do humano),
+  nunca no papel/artefato/commit/log. Mudança só no core; wrappers herdam.
+
 ## 0.9.1 — 2026-09-02 · Entrevista de contexto calibrada pelo perfil de quem responde
 
 - **`/montar-contexto` — Passo 0 na Fase 1**: antes das 8 perguntas, a IA descobre COM QUEM está
