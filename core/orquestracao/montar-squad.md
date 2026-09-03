@@ -48,6 +48,18 @@ Princípios de composição (não negociáveis):
   desempenho · menor custo · melhor custo-benefício) com 1 linha de justificativa cada, apontando
   leaderboards para ele conferir (ver `squad\_core\best-practices\escolher-modelos.md`). Ele escolhe —
   inclusive fora das sugestões. Registre em `squad\MODELOS.md`.
+- **Doc/arquitetura viva (Mapa do Projeto) = decisão do usuário, reversível**: verifique o campo
+  `mapaProjeto` do manifesto `{{RAIZ}}\squad\.squadkit.json`. **Se a entrevista já decidiu** (via
+  `/montar-contexto`), respeite. **Se NÃO houve entrevista ou ficou indeciso**, PERGUNTE agora, em
+  linguagem clara: *"Quer que, ao final de cada card/task, o squad mantenha um documento vivo do
+  projeto — o que faz, como as peças se encaixam, onde ficam as coisas — em linguagem acessível?
+  Fica limpo, atualiza só quando o retrato muda, e você liga/desliga quando quiser."* Grave a
+  resposta em `mapaProjeto` (`true`/`false`). **Se `true`**: faça um **review total do projeto**
+  (tamanho/complexidade do código e do domínio, integrações, criticidade, volume de docs) e
+  recomende o modelo do **papel dono** (`squad-docs`, ou uma nota para o orquestrador se `docs` não
+  entrar no squad) **calibrado ao nível** — simples → econômico; médio → custo-benefício;
+  grande/crítico → desempenho. É recomendação **momentânea** (reavaliável no `/fechar-sprint`).
+  Mecânica completa em `squad\_core\orquestracao\mapa-do-projeto.md`.
 - **MCP por papel = liga só onde faz sentido**: leia os MCPs que o usuário pediu na entrevista
   (`entrevista.md`) e mapeie CADA um ao(s) papel(éis) que realmente usa(m) — não espalhe para o squad
   todo (Figma → dev-front/ux; Atlassian/Trello → PO/PM/analista que mexe no board; GitHub/GitLab →
@@ -97,7 +109,11 @@ Para cada papel aprovado:
      - **Depois/Não** → NÃO fie as tools; registre como pendência em `DECISOES.md` ("MCP <X> previsto,
        não conectado — habilitar quando desejar"). Dá para conectar a qualquer momento sem refazer o squad.
 4. Escreva/atualize `squad\MODELOS.md` (papel → modelo escolhido pelo usuário → alternativas sugeridas).
-5. Registre a composição em `squad\DECISOES.md` (AD-SQ: quais papéis, por quê, o que ficou de fora).
+   Se `mapaProjeto: true`, inclua a recomendação de modelo do **dono do Mapa do Projeto** calibrada
+   ao nível do projeto (linha do `squad-docs`, ou uma nota para o orquestrador se `docs` não entrar).
+   Grave/confirme o campo `mapaProjeto` (`true`/`false`) no manifesto `squad\.squadkit.json`.
+5. Registre a composição em `squad\DECISOES.md` (AD-SQ: quais papéis, por quê, o que ficou de fora;
+   e a decisão sobre o Mapa do Projeto — ligado/desligado e o modelo do dono, se ligado).
 
 ### Gates de build (BLOCKING — não relate sucesso sem passar)
 

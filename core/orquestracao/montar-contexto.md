@@ -75,6 +75,16 @@ MCP ao papel certo. Não force: se a pessoa não usa nenhum, ou não sabe o que 
 adicionar depois. Regra de segurança: **MCP dá ACESSO**; o segredo mora na conexão (config do MCP),
 nunca no entregável/commit/log.
 
+**Doc/arquitetura viva por task (pergunte ao fim — opcional).** Ofereça o recurso em linguagem clara:
+
+> "Quer que, **ao final de cada card/task**, o squad mantenha um **documento vivo do projeto** — o que
+> ele faz, como as peças se encaixam e onde ficam as coisas, em **linguagem acessível** (não só para
+> dev)? Ele fica limpo e é atualizado só quando algo do retrato muda (na dúvida, eu te pergunto).
+> Pode ligar/desligar quando quiser."
+
+Anote a resposta (sim/não) em `entrevista.md` — ela vira o campo `mapaProjeto` do manifesto na Fase 4.
+Se a pessoa não decidir agora, deixe em aberto e o `/montar-squad` retoma a pergunta.
+
 Grave `squad\_build\entrevista.md`.
 
 ## Fase 2 — INGESTÃO (ler o que existe)
@@ -110,7 +120,17 @@ Se a evidência não resolve → vira PERGUNTA ao usuário (uma por vez) — nun
    VIVOS (1 linha cada: o quê/quando ler) · HISTÓRICOS · fontes fora da pasta (caminho absoluto/URL).
 2. **`squad\contexto\HISTORICO.md`**: o que já foi feito e POR QUÊ (por sprint/fase/mês), estado
    atual VERIFICADO, para onde vai (metas/roadmap), dívidas e pendências transversais.
-3. **Apresente o RESUMO DE ENTENDIMENTO ao usuário** — NESTE formato, obrigatório:
+3. **`squad\contexto\MAPA-DO-PROJETO.md` — SÓ se o usuário optou por SIM** (pergunta do fim da Fase 1):
+   o retrato VIVO e ACESSÍVEL do projeto — o que ele faz, como as peças se encaixam e onde as coisas
+   ficam, em linguagem do dia a dia (para quem NÃO é técnico também entender). Esta é a **primeira
+   versão**; a esteira o revisa ao final de cada task. Estrutura e regras (limpo, acessível, não
+   duplicar o índice/código) em `squad\_core\orquestracao\mapa-do-projeto.md`. No modo RÁPIDO, gere
+   uma versão enxuta e honesta (marque as lacunas) — ela amadurece com as tasks.
+   **Grave a decisão** no manifesto `squad\.squadkit.json`, campo `mapaProjeto` (`true` se SIM,
+   `false` se NÃO). Se NÃO: não gere o arquivo e avise que dá para ligar depois (`/montar-squad` ou
+   "ligar o mapa do projeto"). Se o usuário não decidiu, deixe o campo como está e sinalize que o
+   `/montar-squad` vai perguntar.
+4. **Apresente o RESUMO DE ENTENDIMENTO ao usuário** — NESTE formato, obrigatório:
 
 ```
 📋 RESUMO DE ENTENDIMENTO — <projeto>
@@ -132,9 +152,9 @@ Se a evidência não resolve → vira PERGUNTA ao usuário (uma por vez) — nun
    (aponte qualquer item — eu corrijo o índice/histórico e reapresento)
 ```
 
-4. **PARE e espere a resposta.** Correção do usuário SOBRESCREVE qualquer inferência (ele é a
-   evidência máxima) — aplique no `_INDICE`/`HISTORICO`, registre a mudança e REAPRESENTE o
-   resumo atualizado. Repita até o "confirmo" explícito. Só então o contexto está pronto.
+5. **PARE e espere a resposta.** Correção do usuário SOBRESCREVE qualquer inferência (ele é a
+   evidência máxima) — aplique no `_INDICE`/`HISTORICO`/`MAPA-DO-PROJETO`, registre a mudança e
+   REAPRESENTE o resumo atualizado. Repita até o "confirmo" explícito. Só então o contexto está pronto.
 
 ## Ciclo de vida do canon (depois do primeiro build)
 

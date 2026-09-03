@@ -27,6 +27,17 @@ para onde o projeto vai (roadmap/marcos), dívidas e pendências transversais.
 **Validar contra o código real e o board antes de escrever** — planos mentem, o repo não.
 Atualizar ao fim de cada sprint.
 
+## 4. O `MAPA-DO-PROJETO.md` (o retrato vivo, em linguagem acessível)
+
+Um panorama do projeto para QUALQUER pessoa entender em 5 minutos — inclusive quem não é técnica:
+o que ele faz, como as peças se encaixam, onde as coisas ficam. Diferente do `_INDICE` (referência
+de fatos) e do `HISTORICO` (linha do tempo), o mapa é a **visão de conjunto narrada** do estado
+atual. É um **recurso opcional** — o usuário decide no onboarding (`/montar-contexto` ou
+`/montar-squad`) e pode **ligar/desligar** quando quiser (campo `mapaProjeto` no manifesto
+`.squadkit.json`). Quando ligado, o `/montar-contexto` gera a primeira versão e a esteira o
+**revisa ao final de cada task** (atualiza se defasou · pergunta na dúvida · mantém limpo).
+Mecânica: `_core\orquestracao\mapa-do-projeto.md`.
+
 ## Regras da pasta
 
 - Documento novo → colocar aqui **e adicionar a linha no `_INDICE.md`** (senão os agentes não acham).

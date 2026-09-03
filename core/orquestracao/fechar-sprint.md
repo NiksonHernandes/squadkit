@@ -16,7 +16,11 @@ sabendo tudo que este aprendeu — sem depender da memória de ninguém.
    ele gera `squad\dashboard.html` com a visão do ciclo.
 4. **Atualizar a memória** — acrescente a seção do ciclo em `squad\contexto\HISTORICO.md`:
    o que foi feito e POR QUÊ, decisões tomadas, o que ficou. Fatos canônicos que MUDARAM →
-   atualizar `_INDICE.md` (com a evidência).
+   atualizar `_INDICE.md` (com a evidência). **Rede de segurança do mapa (só se `mapaProjeto: true`
+   no manifesto)**: confira se `contexto\MAPA-DO-PROJETO.md` ainda retrata o projeto — a esteira já
+   atualiza a cada task, mas o fim de ciclo é a última checagem (defasou? ajuste em linguagem
+   acessível; na dúvida, pergunte). Reavalie também o **modelo do dono do mapa** conforme o projeto
+   cresceu de nível (a escolha era momentânea) e proponha o ajuste em `MODELOS.md` se fizer sentido.
 5. **Extrair lições (anti-poluição)** — só entra lição que teve EVIDÊNCIA no ciclo:
    - Correção/preferência explícita do usuário → `squad\DECISOES.md` (AD-SQ).
    - Aprendizado técnico reutilizável → best-practice do projeto (`squad\_core\best-practices\`

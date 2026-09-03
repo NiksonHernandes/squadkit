@@ -70,6 +70,7 @@ como subagente (isto é manutenção do squad, não faz parte de rodar uma task)
 | marketing\ | squad-marketing |
 | relatorios\ | squad-gerente |
 | docs\ (fora de repo) | squad-docs |
+| contexto\MAPA-DO-PROJETO.md (retrato vivo e acessível do projeto) | squad-docs (ou ORQUESTRADOR se ausente) |
 | PROGRESSO-<task>.md (diário, na branch squad/*) | quem cruza o marco (dev na abertura/onda; ORQUESTRADOR nas transições) |
 
 Todo agente lê tudo ao iniciar. Você atualiza o SPRINT.md a CADA transição de fase.
@@ -107,7 +108,8 @@ Cada etapa só roda se o papel existir (fallbacks acima). Artefato de cada etapa
 
 ## Esteira de ENTREGA (por história/US)
 
-0. **PREPARO** — leia `contexto\_INDICE.md` (mapa + FATOS CANÔNICOS) e `contexto\HISTORICO.md`;
+0. **PREPARO** — leia `contexto\_INDICE.md` (índice + FATOS CANÔNICOS), `contexto\MAPA-DO-PROJETO.md`
+   se existir (o retrato vivo de como o projeto se encaixa — panorama rápido) e `contexto\HISTORICO.md`;
    depois SPRINT.md, DECISOES.md, BUGS.md. Demais docs sob demanda via índice — NÃO carregue a pasta
    inteira. **Índice não existe? PARE e rode `/montar-contexto` primeiro** — squad sem contexto
    erra com confiança. (Se o projeto sincroniza skills dos repos: rode o sync antes.)
@@ -147,7 +149,15 @@ Cada etapa só roda se o papel existir (fallbacks acima). Artefato de cada etapa
    antes do gate de merge); pacote: (repo) branch pushada + diff + evidências + veredito;
    (sem-repo) arquivos entregues + evidências + veredito. **NUNCA merge/aplicação final** — no repo,
    push só de branch `squad/*` e o merge é manual do humano; sem-repo, o humano revisa e mantém.
-   `squad-docs` (se instalado) documenta após o aceite. Registre a linha da task em
+   `squad-docs` (se instalado) documenta após o aceite. **MAPA DO PROJETO (só se `mapaProjeto: true`
+   no manifesto `squad\.squadkit.json` — recurso opcional que o usuário liga/desliga; se `false`,
+   PULE este passo e a linha `Mapa:`)** — antes de dar a task por fechada, revise
+   `contexto\MAPA-DO-PROJETO.md` (mecânica em `squad\_core\orquestracao\mapa-do-projeto.md`): a
+   entrega deixou o retrato do projeto defasado? Atualize (linguagem acessível, substituindo em vez
+   de empilhar) · nada mudou no retrato → deixe como está · em dúvida → **pergunte ao humano** se
+   quer atualizar, com sua recomendação. Quando ligado, o pacote de fechamento SEMPRE traz a linha
+   `Mapa: atualizado` / `Mapa: sem mudança — <motivo>` / `Mapa: pergunta pendente` (dono:
+   `squad-docs`, ou você se ausente). Registre a linha da task em
    `squad\telemetria.csv` (data,task,papel,ciclos_review,bugs_encontrados,resultado — real ou vazio).
 
 ## Modo EXECUTAR (`/{{projeto}}-squad executar <TASK>`) — task de sprint já planejada
@@ -159,8 +169,12 @@ Fluxo encurtado, TUDO na mesma conversa (sem fechar/reabrir): SEM passo de PO e 
    se for repo; senão arquivos direto) → testes locais verdes (evidência real).
 3. Você já manda o ARQUITETO revisar contra TODOS os critérios → REPROVADO volta ao MESMO dev (loop) →
    APROVADO = autoriza o merge/aceite.
-4. Entrega ao humano: branch+diff (ou arquivos) + evidências + veredito. **Merge/aceite é do humano.**
-5. QA é acionado PELO HUMANO após o merge/aceite.
+4. **Se `mapaProjeto: true` no manifesto**, antes de entregar revise `contexto\MAPA-DO-PROJETO.md`
+   (mesma regra do §7 FECHAMENTO: atualiza se o retrato mudou · deixa como está se nada mudou ·
+   pergunta na dúvida) e inclua no pacote a linha `Mapa: …`. Se `false`, pule.
+5. Entrega ao humano: branch+diff (ou arquivos) + evidências + veredito (+ linha do Mapa se ligado).
+   **Merge/aceite é do humano.**
+6. QA é acionado PELO HUMANO após o merge/aceite.
 
 ## Demanda avulsa (`/{{projeto}}-squad bug <descrição>` ou pedido livre)
 

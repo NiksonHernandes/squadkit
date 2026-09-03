@@ -1,5 +1,33 @@
 # Changelog — SquadKit
 
+## 0.9.3 — 2026-09-03 · Mapa do Projeto (documentação viva e acessível, atualizada a cada task)
+
+- **Novo artefato de contexto `contexto\MAPA-DO-PROJETO.md`**: um retrato VIVO e em linguagem
+  ACESSÍVEL do projeto — o que ele faz, como as peças se encaixam e onde as coisas ficam — para
+  qualquer pessoa entender em 5 minutos, inclusive quem **não é técnica**. Diferente do `_INDICE`
+  (fatos canônicos) e do `HISTORICO` (linha do tempo), é a **visão de conjunto narrada** do estado
+  atual. O `/montar-contexto` gera a primeira versão.
+- **Recurso opcional, decidido pelo usuário e reversível**: quem liga/desliga é o usuário — no
+  `/montar-contexto` (entrevista) ou no `/montar-squad` (se não houve entrevista). A decisão fica no
+  manifesto `.squadkit.json` (campo `mapaProjeto`) e pode ser revertida a qualquer momento (desligar
+  não apaga o arquivo, só para de mantê-lo; religar retoma). Ao **ligar**, o `/montar-squad` faz um
+  **review total do projeto** e recomenda o modelo do papel dono (`squad-docs`) **calibrado ao nível**
+  do projeto (simples → econômico · médio → custo-benefício · grande/crítico → desempenho) — escolha
+  momentânea, reavaliada no `/fechar-sprint`.
+- **Revisado ao FINAL de cada card/task (gate de fechamento, quando ligado)**: a esteira (§7
+  FECHAMENTO e passo final do modo EXECUTAR) exige, antes de fechar, verificar se a entrega deixou o
+  retrato **defasado** e decidir: **atualiza** (linguagem acessível, substituindo em vez de empilhar)
+  · **deixa como está** se nada mudou no retrato · **pergunta ao humano** na dúvida (com recomendação).
+  O pacote de fechamento traz a linha `Mapa: atualizado / sem mudança — <motivo> / pergunta pendente`
+  — auditável, o fechamento não fica "verde" sem ela.
+- **Regras do artefato**: limpo por construção (substitui, não empilha; remove o que morreu),
+  linguagem do dia a dia (termo técnico só com tradução ao lado), derivado do REAL (sem
+  funcionalidade fantasma) e sem duplicar o índice/código/docs técnicos — aponta para eles.
+- **Dono único `squad-docs`** (ou o ORQUESTRADOR quando o papel não está instalado). `/fechar-sprint`
+  faz a rede de segurança de fim de ciclo. Fonte única CLI-neutra em
+  `core/orquestracao/mapa-do-projeto.md`; wrappers (Claude Code, Antigravity, Codex/AGENTS.md, etc.)
+  apontam para o `_core` e herdam automaticamente.
+
 ## 0.9.2 — 2026-09-02 · Integração de MCP aos agentes (pergunta na entrevista → fiação no montar-squad)
 
 - **`/montar-contexto` pergunta por MCPs**: ao fim da entrevista, a IA pergunta se o usuário quer

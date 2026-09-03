@@ -20,6 +20,7 @@ Write-Host '=== SquadKit DEMO ===' -ForegroundColor Cyan
 # semeia contexto + spec + telemetria de exemplo
 Copy-Item (Join-Path (Join-Path $src 'demo') '_INDICE.md')   (Join-Path (Join-Path (Join-Path $Destino 'squad') 'contexto') '_INDICE.md') -Force
 Copy-Item (Join-Path (Join-Path $src 'demo') 'HISTORICO.md') (Join-Path (Join-Path (Join-Path $Destino 'squad') 'contexto') 'HISTORICO.md') -Force
+Copy-Item (Join-Path (Join-Path $src 'demo') 'MAPA-DO-PROJETO.md') (Join-Path (Join-Path (Join-Path $Destino 'squad') 'contexto') 'MAPA-DO-PROJETO.md') -Force
 Copy-Item (Join-Path (Join-Path $src 'demo') 'SPEC-DEMO-1.md') (Join-Path (Join-Path (Join-Path $Destino 'squad') 'specs') 'SPEC-DEMO-1.md') -Force
 Copy-Item (Join-Path (Join-Path $src 'demo') 'telemetria-seed.csv') (Join-Path (Join-Path $Destino 'squad') 'telemetria.csv') -Force
 Copy-Item (Join-Path (Join-Path $src 'demo') 'DEMO.md') (Join-Path $Destino 'DEMO.md') -Force

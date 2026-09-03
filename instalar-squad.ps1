@@ -194,6 +194,7 @@ $manifesto = @{
     projeto = $Projeto; slug = $Slug; raiz = $Destino.TrimEnd('\', '/')
     branch = $BranchIntegracao; clones = $PastaClones.TrimEnd('\', '/'); board = $Board
     ides = $Ide; papeis = $instalados; diffMaximo = 400; idioma = $Idioma
+    mapaProjeto = $true   # doc/arquitetura viva por task; o usuario decide/reverte no onboarding
     instaladoEm = (Get-Date -Format 'yyyy-MM-dd HH:mm')
 } | ConvertTo-Json
 [IO.File]::WriteAllText((Join-Path (Join-Path $Destino 'squad') '.squadkit.json'), $manifesto, (New-Object Text.UTF8Encoding($false)))

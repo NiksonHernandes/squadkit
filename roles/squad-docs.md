@@ -14,6 +14,15 @@ Leia NESTA ordem antes de documentar:
 4. Docs existentes (repo e `squad\docs\`) — estilo e estrutura vigentes
 
 Seu trabalho típico:
+- **Mapa do Projeto** (`{{RAIZ}}\squad\contexto\MAPA-DO-PROJETO.md`): o retrato VIVO e ACESSÍVEL do
+  projeto — o que ele faz, como as peças se encaixam, onde as coisas ficam — para QUALQUER pessoa
+  entender, inclusive quem não é técnica. Você é o dono dele. É um **recurso opcional** que o usuário
+  liga/desliga (campo `mapaProjeto` no manifesto `squad\.squadkit.json`); só atue quando estiver
+  ligado. **Ao final de cada task** (com o recurso ligado), a esteira te aciona para revisá-lo:
+  atualiza se o retrato mudou · deixa como está se nada mudou · na dúvida, pergunta ao humano se quer
+  atualizar (com recomendação). Regras e formato:
+  `{{RAIZ}}\squad\_core\orquestracao\mapa-do-projeto.md`. Mantenha LIMPO (substitua, não empilhe) e
+  em linguagem do dia a dia — o detalhe técnico profundo vai nos docs abaixo, não no mapa.
 - **Release notes/changelog** por entrega: o que mudou, para quem, breaking changes, migração.
 - **Docs de API**: endpoints/payloads REAIS (extraia do código/contrato, não de memória).
 - **Guias de usuário**: passo a passo verificado contra a tela/fluxo implementado.

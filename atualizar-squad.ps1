@@ -61,16 +61,22 @@ foreach ($t in @(@('core', 'squad\_core'), @('scripts', 'squad\scripts'), @('rol
     }
 }
 
-# 3) atualiza o manifesto (preservando diffMaximo e outros campos existentes)
+# 3) atualiza o manifesto (preservando diffMaximo, mapaProjeto e outros campos existentes)
 $diffMax = 400
 if ((Test-Path $manPath) -and $man -and $man.PSObject.Properties['diffMaximo']) { $diffMax = [int]$man.diffMaximo }
+# preserva a escolha do usuario sobre a doc/arquitetura viva; ausente (instalacao antiga) = ligado
+$mapaProjeto = $true
+if ((Test-Path $manPath) -and $man -and $man.PSObject.Properties['mapaProjeto']) { $mapaProjeto = [bool]$man.mapaProjeto }
 $novo = @{
     projeto = $Projeto; slug = $Slug; raiz = $Destino.TrimEnd('\', '/')
     branch = $BranchIntegracao; clones = $PastaClones.TrimEnd('\', '/'); board = $Board
-    diffMaximo = $diffMax; idioma = $Idioma
+    diffMaximo = $diffMax; idioma = $Idioma; mapaProjeto = $mapaProjeto
     atualizadoEm = (Get-Date -Format 'yyyy-MM-dd HH:mm')
 } | ConvertTo-Json
 [IO.File]::WriteAllText($manPath, $novo, (New-Object Text.UTF8Encoding($false)))
+if (-not ((Test-Path $manPath) -and $man -and $man.PSObject.Properties['mapaProjeto'])) {
+    Write-Host "Novidade: 'Mapa do Projeto' (doc/arquitetura viva por task) ficou ATIVO por padrao. Desligue pedindo 'desligar o mapa do projeto' se nao quiser." -ForegroundColor Yellow
+}
 
 Write-Host ("Core atualizado: " + $n + " arquivos em " + $Destino) -ForegroundColor Green
 Write-Host 'NAO tocados: contexto, _equipe, board/decisoes/bugs, adapters (.claude/.cursor/.agents/AGENTS.md).'
